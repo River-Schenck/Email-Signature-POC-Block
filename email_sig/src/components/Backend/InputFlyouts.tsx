@@ -25,7 +25,7 @@ interface InputFlyoutsProps {
     appBridgeColorPalettes?: ColorPalette[];
 }
 
-const InputFlyouts = ({ input, index, inputs, setInputs, appBridgeColorPalettes }: InputFlyoutsProps) => {
+const InputFlyouts = ({ input, index, inputs, setInputs }: InputFlyoutsProps) => {
     return (
         <div style={styles.flyoutContainer}>
             <Flyout
