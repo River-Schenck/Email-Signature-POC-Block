@@ -48,19 +48,19 @@ export const livePreview = (inputs: InputItem[], isFrontend = true, fontFamily: 
                     </>
                 );
             } else if (isImageInputItem(input)) {
-                let selectedImageId = input.selectedImageId;
-                let selectedImage: ImageData | undefined;
+                const imageInput = input as ImageInputItem;
+                let selectedImageId = imageInput.selectedImageId;
 
-                if (isFrontend && input.userInput) {
-                    const specificUserInput = input.userInput as UserImageInput;
+                if (isFrontend && imageInput.userInput) {
+                    const specificUserInput = imageInput.userInput as UserImageInput;
                     selectedImageId = specificUserInput.selectedImageId;
                 }
 
-                selectedImage = input.images.find((image) => image.id === selectedImageId);
+                const selectedImage = imageInput.images.find((image) => image.id === selectedImageId);
                 const selectedImageWidth = selectedImage ? selectedImage.width : undefined;
 
                 return (
-                    <div key={input.id}>
+                    <div key={imageInput.id}>
                         {selectedImage && <img src={selectedImage.url} alt="" width={selectedImageWidth} />}
                     </div>
                 );
